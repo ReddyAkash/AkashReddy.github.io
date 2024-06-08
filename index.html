@@ -27,6 +27,31 @@
         }
     }
 
+    .experience-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+
+        .experience-container img {
+            border-radius: 50%;
+            margin-right: 20px;
+            width: 75px;
+            height: 75px;
+        }
+
+    .experience-details {
+        max-width: calc(100% - 70px);
+    }
+
+        .experience-details h5 {
+            margin: 0 0 5px 0;
+        }
+
+        .experience-details p {
+            margin: 0;
+        }
+
     .header-content1 {
         display: flex;
         flex-direction: column;
@@ -54,6 +79,22 @@
         z-index: 1; /* Ensure it overlays the image */
     }
 
+
+    .breathing-effect {
+        animation: breathing 3s infinite;
+        position: relative;
+    }
+
+    @keyframes breathing {
+        0%, 100% {
+            box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.2);
+        }
+
+        50% {
+            box-shadow: 0 0 30px 15px rgba(255, 255, 255, 0.5);
+        }
+    }
+
     .w3-card {
         border-radius: 10px; /* Make the corners round */
         border: 1px solid #ddd; /* Add border */
@@ -74,6 +115,22 @@
             box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2); /* Adjust box shadow on hover */
         }
 
+
+    .w3-card {
+        border-radius: 10px; /* Make the corners round */
+        border: 1px solid #ddd; /* Add border */
+        margin: 8px; /* Add some margin between card views */
+        box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); /* Add box shadow for depth */
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative; /* Ensures the z-index works */
+    }
+
+        .w3-card:hover {
+            transform: scale(1.05); /* Slightly increase the size */
+            box-shadow: 0 12px 24px 0 rgba(0,0,0,0.2); /* Adjust box shadow on hover */
+            z-index: 10; /* Bring the card to the front */
+        }
+
     
 
 
@@ -82,6 +139,49 @@
         white-space: nowrap;
         overflow: hidden;
     }
+
+    .project-section {
+        padding: 20px;
+        border-left: 5px solid #f1f1f1; /* Add a left border for emphasis */
+        margin-bottom: 20px; /* Space between projects */
+        transition: border-color 0.3s ease;
+    }
+
+        .project-section:hover {
+            border-left-color: #2196F3; /* Change border color on hover */
+        }
+
+    .project-title {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+        color: #2196F3; /* Project title color */
+    }
+
+    .project-description {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+        color: #555; /* Project description color */
+    }
+
+    .project-technologies {
+        font-size: 0.9em;
+        color: #999; /* Technologies used color */
+    }
+
+    .project-card {
+        display: none; /* Initially hidden */
+        padding: 15px;
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    .project-section:hover .project-card {
+        display: block; /* Show on hover */
+    }
+
 
     .header {
         position: fixed;
@@ -123,7 +223,25 @@
     }
 
 
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px); /* Adjust the translate value for a subtle upward motion */
+        }
 
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .fade-in {
+        opacity: 0; /* Start hidden */
+        animation: fadeIn ease-in 1; /* Use the fadeIn animation */
+        animation-fill-mode: forwards; /* Keep the final state of the animation */
+        animation-duration: 1s; /* Duration of the animation */
+        animation-delay: 0.5s; /* Delay before the animation starts */
+    }
 
     .header-title {
         font-size: 2em;
@@ -160,10 +278,15 @@
                 visibility: visible;
                 transform: scaleX(1);
             }
+
+    .footer-text {
+        margin-top: 20px;
+        font-size: 16px;
+    }
 </style>
 <body class="w3-black">
 
-    <div class="header">
+    <div class="header fade-in">
         <div class="header-content">
             <div class="header-title">Akash Reddy.</div>
             <div class="nav-links">
@@ -176,20 +299,20 @@
         </div>
     </div>
 
-    <div class="w3-padding-large" id="main">
+    <div class="w3-padding-large fade-in" id="main">
         <header class="w3-container w3-padding-32 w3-black" id="home">
             <div class="header-content1">
                 <h1 class="w3-jumbo"><span class="w3-hide-small">Hi I'm</span> Akash Reddy.</h1>
                 <p class="typing" id="typing-text"></p>
                 <div style="position: relative; display: inline-block;" class="image-container shaky-image">
-                    <img src="D:/itsme.png" alt="boy"  class="w3-image">
+                    <img src="https://res-console.cloudinary.com/diitxludq/media_explorer_thumbnails/2a22266b5ee937fe0cf94815ffeb9e8d/detailed" alt="boy" class="w3-image">
                     <div class="image-fade"></div>
                 </div>
             </div>
         </header>
 
         <!-- About Section -->
-        <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="about">
+        <div class="w3-content w3-justify w3-text-grey w3-padding-64 fade-in" id="about">
             <h2 class="w3-text-light-grey">About</h2>
             <hr style="width:200px" class="w3-opacity">
             <p>
@@ -316,33 +439,64 @@
 
 
 
-            <h3 class="w3-padding-24 w3-text-light-grey">My Reputation</h3>
-            <img src="/w3images/bandmember.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-            <p><span class="w3-large w3-margin-right">Chris Fox.</span> CEO at Mighty Schools.</p>
-            <p>John Doe saved us from a web disaster.</p><br>
+            <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="experience">
+                <h2 class="w3-text-light-grey">My Experience</h2>
+                <hr style="width:200px" class="w3-opacity">
 
-            <img src="/w3images/avatar_g2.jpg" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:80px">
-            <p><span class="w3-large w3-margin-right">Rebecca Flex.</span> CEO at Company.</p>
-            <p>No one is better than John Doe.</p>
-        </div>
-
-        <!-- Portfolio Section -->
-        <div class="w3-padding-64 w3-content" id="photos">
-            <h2 class="w3-text-light-grey">My Photos</h2>
-            <hr style="width:200px" class="w3-opacity">
-
-            <div class="w3-row-padding" style="margin:0 -16px">
-                <div class="w3-half">
-                    <img src="/w3images/wedding.jpg" style="width:100%">
-                    <img src="/w3images/rocks.jpg" style="width:100%">
-                    <img src="/w3images/sailboat.jpg" style="width:100%">
+                <div class="experience-container">
+                    <img src="https://media.licdn.com/dms/image/D4D12AQH_bkHrF8c3DQ/article-cover_image-shrink_600_2000/0/1693589434863?e=2147483647&v=beta&t=yUJOTz8OrroQGNb__UzpHE7iQMA5gLQcz-IC5gj5--8" alt="Company 1">
+                    <div class="experience-details">
+                        <h5>Andoid app developer</h5>
+                        <h5>CodSoft</h5>
+                        <p>Duration: August 2023-September 2023</p>
+                    </div>
                 </div>
 
-                <div class="w3-half">
-                    <img src="/w3images/underwater.jpg" style="width:100%">
-                    <img src="/w3images/chef.jpg" style="width:100%">
-                    <img src="/w3images/wedding.jpg" style="width:100%">
-                    <img src="/w3images/p6.jpg" style="width:100%">
+                <div class="experience-container">
+                    <img src="https://static.wixstatic.com/media/db7cd5_f6b26ca89c804fbcb3b3732fd1e012f1~mv2.png/v1/fill/w_560,h_574,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/Image-empty-state.png" alt="Company 2">
+                    <div class="experience-details">
+                        <h5>Design Team member</h5>
+                        <h5>Linux Club</h5>
+                        <p>February 2023-present</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Projects Section -->
+        <div class="w3-padding-64 w3-content w3-text-grey" id="photos">
+            <h2 class="w3-text-light-grey">Projects</h2>
+            <hr style="width:200px" class="w3-opacity">
+
+            <!-- MetroGo Project -->
+            <div class="project-section">
+                <a href="https://github.com/vinothkanna273/Metro-Go" target="_blank"<h3 class="project-title">MetroGo</h3></a>
+                <p class="project-description">Developed a dynamic metro booking management system.</p>
+                <p class="project-technologies">Technologies: HTML, CSS, JavaScript,Java,MySql</p>
+                <div id="metrogo-card" class="project-card">
+                    <p>Metro Go web application is for users who wish to avail the metro facilities in many places of India. The intention of this application is to reduce the queue at ticket counters. The approximate amount of routes available, approximate cost, online booking, past bookings and much more. Through the displayed routes, the user gets a clear-cut information about the stations the metro passes through and where the user tends to travel. Based on users request it is possible to proceed to ticket booking and users details are thus stored in the database from where ticket details can be obtained. This is the place where user can view and book tickets of different state's metro in single portal.</p>
+                </div>
+            </div>
+
+            <!-- Wheelzy Project -->
+            <div class="project-section">
+                <a href="https://github.com/ReddyAkash/Wheelzy" target="_blank"<h3 class="project-title">Wheelzy</h3></a>
+                <p class="project-description">Designed a smart app that helps to book variety of bikes of our choice</p>
+                <p class="project-technologies">Technologies: Android Studio, Java , Firebase </p>
+                <div id="wheelzy-card" class="project-card">
+                    <p>Wheelzy offers a revolutionary solution for renting two-wheeled vehicles, including scooters, motorcycles, electric bikes, and bicycles. Unlike traditional ride-sharing apps, Wheelzy empowers users with the freedom of self-driven travel, unlocking endless possibilities for exploration.</p>
+                </div>
+            </div>
+
+            <!-- Secure Authentication System Using Blockchain Technology Project -->
+            <div class="project-section">
+                <a href=""<h3 class="project-title">Secure Authentication System Using Blockchain Technology</h3></a>
+                <p class="project-description">Implemented a secure and decentralized authentication system.</p>
+                <p class="project-technologies">Technologies: Blockchain, Ganache, Metamask, React</p>
+                <div id="blockchain-card" class="project-card">
+                    <p>This project introduces a cutting-edge secured authentication system leveraging Web3 blockchain technology. Traditional authentication methods are susceptible to vulnerabilities, and our solution addresses these challenges by providing a decentralized and tamper-proof authentication infrastructure. Through the use of blockchain, we aim to establish a new standard for secure user authentication across various domains.</p>
                 </div>
             </div>
         </div>
@@ -352,13 +506,14 @@
             <hr style="width:200px" class="w3-opacity">
 
             <div class="w3-section">
-                <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Chicago, US</p>
-                <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +00 151515</p>
-                <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: mail@mail.com</p>
+                <p><i class="fa fa-map-marker fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Andhra Pradesh, India</p>
+                <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: +91 9398232370</p>
+                <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: akashreddytatiparthi@gmail.com</p>
             </div><br>
             <p>Let's get in touch. Send me a message:</p>
 
-            <form action="/action_page.php" target="_blank">
+            <form action="https://formspree.io/f/xnqeklqd"
+  method="POST" target="_blank">
                 <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
                 <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
                 <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
@@ -372,13 +527,13 @@
         </div>
 
         <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-snapchat w3-hover-opacity"></i>
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-            <i class="fa fa-twitter w3-hover-opacity"></i>
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
-            <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+            <a href="https://www.facebook.com/akash.reddy.33671748" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a>
+            <a href="https://www.instagram.com/akash_reddy00/" target="_blank"><i class="fa fa-instagram w3-hover-opacity"></i></a>
+            <a href="https://www.linkedin.com/in/akashreddy-tatiparthi-70ab56246/" target="_blank"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
+            <a href="https://github.com/ReddyAkash" target="_blank"><i class="fa fa-github w3-hover-opacity"></i></a>
+            <div class="footer-text">
+                © 2024 Akash Reddy Tatiparthi, All Rights Reserved
+            </div>
         </footer>
     </div>
 
@@ -420,6 +575,17 @@
         document.addEventListener("DOMContentLoaded", () => {
             typeEffect();
         });
+
+        
+            function showCard(cardId) {
+                document.getElementById(cardId).style.display = 'block';
+        }
+
+            function hideCard(cardId) {
+                document.getElementById(cardId).style.display = 'none';
+        }
+    
+
     </script>
 
 </body>
